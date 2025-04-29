@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Ticket;
+use Illuminate\Http\Request;
+use App\Http\Requests\StoreTicketRequest; // <- importar a Form Request
 
 class TicketController extends Controller
 {
@@ -18,15 +19,9 @@ class TicketController extends Controller
         return view('tickets.create');
     }
 
-    public function store(Request $request)
+    // Aqui usa a Form Request
+    public function store(StoreTicketRequest $request)
     {
-        $request->validate([
-            'nome' => 'required',
-            'email' => 'required|email',
-            'titulo' => 'required',
-            'descricao' => 'required',
-        ]);
-
         Ticket::create($request->all());
         return redirect()->route('tickets.index')->with('success', 'Ticket criado com sucesso!');
     }
