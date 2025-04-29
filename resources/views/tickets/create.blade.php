@@ -10,13 +10,13 @@
     <form action="{{ route('tickets.store') }}" method="POST">
         @csrf
         <label>Nome:</label>
-        <input type="text" name="nome" required>
+        <input type="text" name="nome" >
         <label>E-mail:</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email">
         <label>Título:</label>
-        <input type="text" name="titulo" required>
+        <input type="text" name="titulo">
         <label>Descrição:</label>
-        <textarea name="descricao" required></textarea>
+        <textarea name="descricao"></textarea>
         <button type="submit">Criar</button>
     </form>
 </body>
